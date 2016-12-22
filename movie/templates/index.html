@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Show</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th></th>
+        <th>名称</th>
+        <th>时间</th>
+        <th>下载链接</th>
+    </tr>
+    {% for movie in movies %}
+    <tr>
+        <td><img src="{{ movie.img_url }}" width="100px"></td>
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.year }}-{{ movie.month }}-{{ movie.day }}</td>
+        <td>
+            {% for link in movie.download_links %}
+            <p>{{ link|safe }}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
